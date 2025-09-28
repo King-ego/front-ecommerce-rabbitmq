@@ -3,7 +3,10 @@
 import Image from "next/image";
 
 export default async function Home() {
-    const response = await fetch('http://localhost:8079/products')
+    const response = await fetch('http://localhost:8079/products', {
+        cache: 'force-cache',
+        next: { revalidate: 600 }
+    })
     const products = await response.json();
 
 
