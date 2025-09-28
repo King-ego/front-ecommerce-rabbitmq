@@ -1,13 +1,16 @@
 'use server';
 
 import Image from "next/image";
+import ApiRequest from "@/requests/api";
 
 export default async function Home() {
-    const response = await fetch('http://localhost:8079/products', {
+    const products = await ApiRequest('/products', {
         cache: 'force-cache',
-        next: { revalidate: 600 }
+        next: { revalidate: 600 },
+        headers: {
+            'Content-Type': 'application/json'
+        },
     })
-    const products = await response.json();
 
 
     return (
