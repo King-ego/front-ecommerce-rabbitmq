@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import ApiRequest from "@/requests/api";
+import Product from "@/requests/interfaces/Product";
 
 export default async function Home() {
-    const products = await ApiRequest<{id: string, name: string}[]>('/products', {
+    const products = await ApiRequest<Product[]>('/products', {
         cache: 'force-cache',
         next: { revalidate: 600 },
         headers: {
