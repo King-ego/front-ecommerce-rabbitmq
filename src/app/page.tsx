@@ -5,32 +5,35 @@ import ApiRequest from "@/requests/api";
 import Product from "@/requests/interfaces/Product";
 
 export default async function Home() {
-    const products = await ApiRequest<Product[]>('/products', {
-        cache: 'force-cache',
-        next: { revalidate: 600 },
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    })
+	const products = await ApiRequest<Product[]>('/products', {
+		cache: 'force-cache',
+		next: {revalidate: 600},
+		headers: {
+			'Content-Type': 'application/json'
+		},
+	})
 
-    console.log({products});
+	console.log({products});
 
 
-    return (
-        <div className="">
-           <main>
-               {products?.map((product) =>
-                   <div key={product.id}>
-                     <Image src={`https://dummyimage.com/600x400/cccccc/000000&text=`} alt={`Product`} width={300} height={200} />
-                     <p>{product.name}</p>
-                   </div>
-               )}
-           </main>
+	return (
+		<div className="">
+			<main>
+				{products?.map((product) =>
+					<div key={product.id}>
+						<Image src={`https://dummyimage.com/600x400/cccccc/000000&text=`} alt={`Product`} width={300}
+							   height={200}/>
+						<p>{product.name}</p>
+						<p>{product.description}</p>
+						<p>{Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(product.price)}</p>
+					</div>
+				)}
+			</main>
 
-            {/*<div>
+			{/*<div>
                 <Image src='https://dummyimage.com/600x400/cccccc/000000&text=' alt={""} width={300} height={300} />
                 <>{JSON.stringify(products, null, 2) }</>
             </div>*/}
-        </div>
-    );
+		</div>
+	);
 }
