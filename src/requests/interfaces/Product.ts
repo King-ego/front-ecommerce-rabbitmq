@@ -6,4 +6,5 @@ export default interface Product {
     description: string;
     category: string;
     image_url: string;
+	slug: string;
 }
