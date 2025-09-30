@@ -24,7 +24,7 @@ export default async function Home() {
 					<div key={product.id}>
 						<Image src={`https://dummyimage.com/600x400/cccccc/000000&text=`} alt={`Product`} width={300}
 							   height={200}/>
-						<Link href={`/product/${product.id}`}>{product.name}</Link>
+						<Link href={`/product/${product.slug}`}>{product.name}</Link>
 						<p>{product.description}</p>
 						<p>{Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(product.price)}</p>
 					</div>
