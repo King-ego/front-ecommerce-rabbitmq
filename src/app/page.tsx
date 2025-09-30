@@ -1,8 +1,6 @@
 'use server';
 
 import Image from "next/image";
-import ApiRequest from "@/requests/api";
-import Product from "@/requests/interfaces/Product";
 import Link from "next/link";
 import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
 
