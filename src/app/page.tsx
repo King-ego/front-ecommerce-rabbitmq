@@ -4,15 +4,10 @@ import Image from "next/image";
 import ApiRequest from "@/requests/api";
 import Product from "@/requests/interfaces/Product";
 import Link from "next/link";
+import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
 
 export default async function Home() {
-	const products = await ApiRequest<Product[]>('/products', {
-		cache: 'force-cache',
-		next: {revalidate: 600},
-		headers: {
-			'Content-Type': 'application/json'
-		},
-	})
+	const products = await ProductHttpService.getProducts();
 
 	console.log({products});
 
