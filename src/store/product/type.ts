@@ -1,0 +1,6 @@
+import Product from "@/requests/interfaces/Product";
+
+export interface ProductState {
+	products: Product[];
+	addProduct: (product: Product) => void;
+}
