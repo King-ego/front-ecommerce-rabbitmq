@@ -11,5 +11,16 @@ export class ProductHttpService {
 			},
 		})
 	}
+
+	public static async createProduct(product: Omit<Product, 'id'>): Promise<void> {
+		await ApiRequest<Product>('/products', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(product)
+		})
+
+	}
 }
 
