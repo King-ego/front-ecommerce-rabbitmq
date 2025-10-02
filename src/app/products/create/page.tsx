@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { Input } from "@/components/Input";
 
 type FormValues = {
 	name: string;
@@ -45,20 +46,7 @@ export default function CadastroProduto() {
 				</div>
 
 				<form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-					{/* Nome */}
-					<div>
-						<label className="block text-sm font-medium text-gray-700">
-							Nome do Produto
-						</label>
-						<input
-							{...register("name", { required: "Informe o nome do produto" })}
-							placeholder="Digite o nome do produto"
-							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
-						/>
-						{errors.name && (
-							<p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-						)}
-					</div>
+					<Input label={"Nome do Produto"} register={{...register("name", {required: "Informe o nome do produto"})}} placeholder={"Digite o nome do produto"}/>
 
 					{/* Preço e Quantidade */}
 					<div className="grid grid-cols-2 gap-4">
