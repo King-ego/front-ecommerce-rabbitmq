@@ -53,7 +53,7 @@ export default function CadastroProduto() {
 						<input
 							{...register("nome", { required: "Informe o nome do produto" })}
 							placeholder="Digite o nome do produto"
-							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 						/>
 						{errors.nome && (
 							<p className="text-red-500 text-sm mt-1">{errors.nome.message}</p>
@@ -70,7 +70,7 @@ export default function CadastroProduto() {
 								type="number"
 								step="0.01"
 								{...register("preco", { required: "Informe o preço" })}
-								className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+								className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 							/>
 							{errors.preco && (
 								<p className="text-red-500 text-sm mt-1">{errors.preco.message}</p>
@@ -83,7 +83,7 @@ export default function CadastroProduto() {
 							<input
 								type="number"
 								{...register("quantidade", { required: "Informe a quantidade" })}
-								className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+								className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 							/>
 							{errors.quantidade && (
 								<p className="text-red-500 text-sm mt-1">{errors.quantidade.message}</p>
@@ -98,7 +98,7 @@ export default function CadastroProduto() {
 						</label>
 						<select
 							{...register("categoria", { required: "Selecione uma categoria" })}
-							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 						>
 							<option value="">Selecione uma categoria</option>
 							<option value="eletronicos">Eletrônicos</option>
@@ -119,7 +119,7 @@ export default function CadastroProduto() {
 							{...register("descricao", { required: "Descreva o produto" })}
 							placeholder="Descreva o produto detalhadamente..."
 							rows={4}
-							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 						/>
 						{errors.descricao && (
 							<p className="text-red-500 text-sm mt-1">{errors.descricao.message}</p>
