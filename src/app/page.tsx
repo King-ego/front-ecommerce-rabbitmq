@@ -2,13 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
+import { ProductHttpService } from "@/requests/http/services/ProductHttpService";
 
 export default async function Home() {
 	const products = await ProductHttpService.getProducts();
-
-	console.log({products});
-
 
 	return (
 		<section className="w-full">
