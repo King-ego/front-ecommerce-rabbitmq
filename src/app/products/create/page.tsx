@@ -50,7 +50,9 @@ export default function CadastroProduto() {
 
 					{/* Preço e Quantidade */}
 					<div className="grid grid-cols-2 gap-4">
-						<div>
+						<Input label={"Preço (R$)"} register={{...register("price", { required: "Informe o preço" })}} step={"0.01"} type={"number"} />
+						<Input label={"Quantidade em Estoque"} register={{...register("quantity_in_stock", { required: "Informe a quantidade" })}} type={"number"} />
+						{/*<div>
 							<label className="block text-sm font-medium text-gray-700">
 								Preço (R$)
 							</label>
@@ -76,7 +78,7 @@ export default function CadastroProduto() {
 							{errors.quantity_in_stock && (
 								<p className="text-red-500 text-sm mt-1">{errors.quantity_in_stock.message}</p>
 							)}
-						</div>
+						</div>*/}
 					</div>
 
 					{/* Categoria */}
