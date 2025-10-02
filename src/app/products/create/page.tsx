@@ -48,37 +48,12 @@ export default function CadastroProduto() {
 				<form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
 					<Input label={"Nome do Produto"} register={{...register("name", {required: "Informe o nome do produto"})}} placeholder={"Digite o nome do produto"}/>
 
-					{/* Preço e Quantidade */}
 					<div className="grid grid-cols-2 gap-4">
+
 						<Input label={"Preço (R$)"} register={{...register("price", { required: "Informe o preço" })}} step={"0.01"} type={"number"} />
+
 						<Input label={"Quantidade em Estoque"} register={{...register("quantity_in_stock", { required: "Informe a quantidade" })}} type={"number"} />
-						{/*<div>
-							<label className="block text-sm font-medium text-gray-700">
-								Preço (R$)
-							</label>
-							<input
-								type="number"
-								step="0.01"
-								{...register("price", { required: "Informe o preço" })}
-								className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
-							/>
-							{errors.price && (
-								<p className="text-red-500 text-sm mt-1">{errors.price.message}</p>
-							)}
-						</div>
-						<div>
-							<label className="block text-sm font-medium text-gray-700">
-								Quantidade em Estoque
-							</label>
-							<input
-								type="number"
-								{...register("quantity_in_stock", { required: "Informe a quantidade" })}
-								className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
-							/>
-							{errors.quantity_in_stock && (
-								<p className="text-red-500 text-sm mt-1">{errors.quantity_in_stock.message}</p>
-							)}
-						</div>*/}
+
 					</div>
 
 					{/* Categoria */}
@@ -90,7 +65,7 @@ export default function CadastroProduto() {
 							{...register("category", { required: "Selecione uma categoria" })}
 							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 						>
-							<option value="">Selecione uma categoria</option>
+							<option value="" disabled>Selecione uma categoria</option>
 							<option value="eletronicos">Eletrônicos</option>
 							<option value="roupas">Roupas</option>
 							<option value="moveis">Móveis</option>
