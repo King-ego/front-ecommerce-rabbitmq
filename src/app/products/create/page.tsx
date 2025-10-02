@@ -3,11 +3,11 @@
 import { useForm } from "react-hook-form";
 
 type FormValues = {
-	nome: string;
-	preco: number;
-	quantidade: number;
-	categoria: string;
-	descricao: string;
+	name: string;
+	price: number;
+	quantity_in_stock: number;
+	category: string;
+	description: string;
 };
 
 export default function CadastroProduto() {
@@ -51,12 +51,12 @@ export default function CadastroProduto() {
 							Nome do Produto
 						</label>
 						<input
-							{...register("nome", { required: "Informe o nome do produto" })}
+							{...register("name", { required: "Informe o nome do produto" })}
 							placeholder="Digite o nome do produto"
 							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 						/>
-						{errors.nome && (
-							<p className="text-red-500 text-sm mt-1">{errors.nome.message}</p>
+						{errors.name && (
+							<p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
 						)}
 					</div>
 
@@ -69,11 +69,11 @@ export default function CadastroProduto() {
 							<input
 								type="number"
 								step="0.01"
-								{...register("preco", { required: "Informe o preço" })}
+								{...register("price", { required: "Informe o preço" })}
 								className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 							/>
-							{errors.preco && (
-								<p className="text-red-500 text-sm mt-1">{errors.preco.message}</p>
+							{errors.price && (
+								<p className="text-red-500 text-sm mt-1">{errors.price.message}</p>
 							)}
 						</div>
 						<div>
@@ -82,11 +82,11 @@ export default function CadastroProduto() {
 							</label>
 							<input
 								type="number"
-								{...register("quantidade", { required: "Informe a quantidade" })}
+								{...register("quantity_in_stock", { required: "Informe a quantidade" })}
 								className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 							/>
-							{errors.quantidade && (
-								<p className="text-red-500 text-sm mt-1">{errors.quantidade.message}</p>
+							{errors.quantity_in_stock && (
+								<p className="text-red-500 text-sm mt-1">{errors.quantity_in_stock.message}</p>
 							)}
 						</div>
 					</div>
@@ -97,7 +97,7 @@ export default function CadastroProduto() {
 							Categoria
 						</label>
 						<select
-							{...register("categoria", { required: "Selecione uma categoria" })}
+							{...register("category", { required: "Selecione uma categoria" })}
 							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 						>
 							<option value="">Selecione uma categoria</option>
@@ -105,8 +105,8 @@ export default function CadastroProduto() {
 							<option value="roupas">Roupas</option>
 							<option value="moveis">Móveis</option>
 						</select>
-						{errors.categoria && (
-							<p className="text-red-500 text-sm mt-1">{errors.categoria.message}</p>
+						{errors.category && (
+							<p className="text-red-500 text-sm mt-1">{errors.category.message}</p>
 						)}
 					</div>
 
@@ -116,13 +116,13 @@ export default function CadastroProduto() {
 							Descrição
 						</label>
 						<textarea
-							{...register("descricao", { required: "Descreva o produto" })}
+							{...register("description", { required: "Descreva o produto" })}
 							placeholder="Descreva o produto detalhadamente..."
 							rows={4}
 							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 						/>
-						{errors.descricao && (
-							<p className="text-red-500 text-sm mt-1">{errors.descricao.message}</p>
+						{errors.description && (
+							<p className="text-red-500 text-sm mt-1">{errors.description.message}</p>
 						)}
 					</div>
 
