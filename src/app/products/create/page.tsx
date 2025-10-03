@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/Input";
+import Select from "@/components/Select";
 
 type FormValues = {
 	name: string;
@@ -58,7 +59,7 @@ export default function CadastroProduto() {
 
 					{/* Categoria */}
 					
-
+					<Select label="Categoria" register={{...register("category", { required: "Selecione uma categoria" })}} placeholder="Selecione a categoria" error={errors.category}/>
 					{/* Descrição */}
 					<div>
 						<label className="block text-sm font-medium text-gray-700">
