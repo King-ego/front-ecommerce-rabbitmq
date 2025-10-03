@@ -5,6 +5,7 @@ type InputProps = {
 	placeholder?: string;
 	error?: FieldError;
 	register: UseFormRegisterReturn;
+	options: {value: string, label: string}[];
 };
 
 export default function Select(data: InputProps) {
@@ -12,7 +13,8 @@ export default function Select(data: InputProps) {
 		register,
 		error,
 		placeholder,
-		label
+		label,
+		options
 	} = data;
 	return(
 		<div className={"w-full"}>
@@ -27,6 +29,9 @@ export default function Select(data: InputProps) {
 				{/*<option value="eletronicos">Eletrônicos</option>
 				<option value="roupas">Roupas</option>
 				<option value="moveis">Móveis</option>*/}
+				{options.map((option) => (
+					<option key={option.value} value={option.value}>{option.label}</option>
+				))}
 			</select>
 			{error && (
 				<p className="text-red-500 text-sm mt-1">{error.message}</p>
