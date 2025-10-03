@@ -25,7 +25,7 @@ export default function Select(data: InputProps) {
 				{...register}
 				className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
 			>
-				<option value="" disabled>{placeholder}</option>
+				<option value="" disabled selected>{placeholder}</option>
 				{/*<option value="eletronicos">Eletrônicos</option>
 				<option value="roupas">Roupas</option>
 				<option value="moveis">Móveis</option>*/}
