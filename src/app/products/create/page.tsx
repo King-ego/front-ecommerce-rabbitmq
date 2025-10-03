@@ -3,6 +3,7 @@
 import {useForm} from "react-hook-form";
 import {Input} from "@/components/Input";
 import Select from "@/components/Select";
+import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
 
 type FormValues = {
 	name: string;
@@ -20,8 +21,15 @@ export default function CadastroProduto() {
 		formState: {errors},
 	} = useForm<FormValues>();
 
-	const onSubmit = (data: FormValues) => {
+	const onSubmit = async (data: FormValues) => {
 		console.log("Produto cadastrado:", data);
+		await ProductHttpService.createProduct({
+			price: 12,
+			description: "descricao",
+			name: "nome",
+			quantity_in_stock: 1,
+			category: "eletronicos"
+		})
 		reset();
 	};
 
