@@ -12,7 +12,7 @@ export class ProductHttpService {
 		})
 	}
 
-	public static async createProduct(product: Omit<Product, 'id'>): Promise<void> {
+	public static async createProduct(product: Omit<Product, 'id'| 'slug'| 'image_url'>): Promise<void> {
 		await ApiRequest<Product>('/products', {
 			method: 'POST',
 			headers: {
