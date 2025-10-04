@@ -4,22 +4,21 @@ import {InputHTMLAttributes} from "react";
 type InputProps = {
 	label: string;
 	type?: string;
-	step?: string | number;
 	placeholder?: string;
 	error?: FieldError;
 	register: UseFormRegisterReturn;
 	testId?: string;
-};
+} & InputHTMLAttributes<HTMLInputElement>;
 
 export function Input(data: InputProps) {
 	const {
 		label,
 		type = "text",
-		placeholder,
 		error,
-		step,
+		placeholder,
 		register,
-		testId
+		testId,
+		...rest
 	} = data;
 	return (
 		<div className="w-full">
@@ -27,9 +26,9 @@ export function Input(data: InputProps) {
 			<input
 				type={type}
 				placeholder={placeholder}
-				step={step}
 				{...register}
 				data-testid={testId}
+				{...rest}
 				className={`text-gray-500 w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500
           ${error ? "border-red-500" : "border-gray-300"}
         `}
