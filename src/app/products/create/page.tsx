@@ -74,7 +74,7 @@ export default function CadastroProduto() {
 					<div className="grid grid-cols-2 gap-4">
 
 						<Input label={"Preço (R$)"} register={{...register("price", {required: "Informe o preço"})}}
-							   step={"0.01"} type={"number"} error={errors.price}/>
+							   step={"0.01"} type={"number"} error={errors.price} testId="test_name_id"/>
 
 						<Input label={"Quantidade em Estoque"}
 							   register={{...register("quantity_in_stock", {required: "Informe a quantidade"})}}
