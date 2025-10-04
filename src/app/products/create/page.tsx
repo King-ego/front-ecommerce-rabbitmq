@@ -37,19 +37,6 @@ export default function CadastroProduto() {
 		}
 	};
 
-	/*const onSubmit = async (data: FormValues) => {
-		console.log("Produto cadastrado:", data);
-		await ProductHttpService.createProduct({
-			price: 12,
-			description: "descricao",
-			name: "nome",
-			quantity_in_stock: 1,
-			category: "eletronicos"
-		})
-		reset();
-
-	};*/
-
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-gray-100">
 			<div className="w-full max-w-lg p-8 bg-white rounded-2xl shadow-md">
@@ -88,32 +75,15 @@ export default function CadastroProduto() {
 
 					</div>
 
-					{/* Categoria */}
-
 					<Select label="Categoria"
 							register={{...register("category", {required: "Selecione uma categoria"})}}
 							placeholder="Selecione a categoria" error={errors.category}
 							testId="test_category_id"
 							options={[{value: "eletronicos", label: "Eletrônicos"}, {value: "roupas", label: "Roupas"}, {value: "moveis", label: "Móveis"}]}
 					/>
-					{/* Descrição */}
-					<Textarea testId="test_description_id" label="Descrição" register={{...register("description", {required: "Descreva o produto"})}} placeholder="Descreva o produto detalhadamente..." rows={4} error={errors.description} />
-					{/*<div>
-						<label className="block text-sm font-medium text-gray-700">
-							Descrição
-						</label>
-						<textarea
-							{...register("description", {required: "Descreva o produto"})}
-							placeholder="Descreva o produto detalhadamente..."
-							rows={4}
-							className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
-						/>
-						{errors.description && (
-							<p className="text-red-500 text-sm mt-1">{errors.description.message}</p>
-						)}
-					</div>*/}
 
-					{/* Botões */}
+					<Textarea testId="test_description_id" label="Descrição" register={{...register("description", {required: "Descreva o produto"})}} placeholder="Descreva o produto detalhadamente..." rows={4} error={errors.description} />
+
 					<div className="flex justify-between pt-4">
 						<button
 							type="button"
