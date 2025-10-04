@@ -1,4 +1,5 @@
 import {FieldError, UseFormRegisterReturn} from "react-hook-form";
+import {HTMLAttributes} from "react";
 
 type InputProps = {
 	label: string;
@@ -6,7 +7,8 @@ type InputProps = {
 	error?: FieldError;
 	register: UseFormRegisterReturn;
 	options: {value: string, label: string}[];
-};
+	testId?: string;
+} & HTMLAttributes<HTMLSelectElement>;
 
 export default function Select(data: InputProps) {
 	const {
@@ -14,7 +16,10 @@ export default function Select(data: InputProps) {
 		error,
 		placeholder,
 		label,
-		options
+		options,
+		results,
+		testId,
+		...rest
 	} = data;
 	return(
 		<div className={"w-full"}>
@@ -24,6 +29,8 @@ export default function Select(data: InputProps) {
 			<select
 				{...register}
 				className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-500"
+				data-testid={testId}
+				{...rest}
 			>
 				<option defaultValue="" disabled>{placeholder}</option>
 				{options.map((option) => (
