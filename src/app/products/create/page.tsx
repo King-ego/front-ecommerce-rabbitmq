@@ -22,6 +22,16 @@ export default function CadastroProduto() {
 	} = useForm<FormValues>();
 
 	const onSubmit = async (data: FormValues) => {
+		try {
+			await ProductHttpService.createProduct(data);
+			console.log("Produto cadastrado:", data);
+			reset();
+		} catch (error) {
+			console.error("Erro ao cadastrar produto:", error);
+		}
+	};
+
+	/*const onSubmit = async (data: FormValues) => {
 		console.log("Produto cadastrado:", data);
 		await ProductHttpService.createProduct({
 			price: 12,
@@ -31,7 +41,8 @@ export default function CadastroProduto() {
 			category: "eletronicos"
 		})
 		reset();
-	};
+
+	};*/
 
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-gray-100">
