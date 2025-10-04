@@ -25,23 +25,23 @@ describe('CadastroProduto', () => {
 			target: { value: 'Smartphone' }
 		})
 
-		/*fireEvent.change(screen.getByLabelText('Preço (R$)'), {
-			target: { value: '999.99' }
-		})*/
+		fireEvent.change(screen.getByTestId('test_price_id'), {
+			target: { value: 999.99 }
+		})
 
-		/*fireEvent.change(screen.getByLabelText('Quantidade em Estoque'), {
-			target: { value: '10' }
-		})*/
+		fireEvent.change(screen.getByTestId('test_quantity_id'), {
+			target: { value: 10 }
+		})
 
-		/*fireEvent.change(screen.getByPlaceholderText('Selecione a categoria'), {
+		fireEvent.change(screen.getByTestId('test_category_id'), {
 			target: { value: 'eletronicos' }
-		})*/
+		})
 
-		/*fireEvent.change(screen.getByPlaceholderText('Descreva o produto detalhadamente...'), {
+		fireEvent.change(screen.getByTestId('test_description_id'), {
 			target: { value: 'Smartphone Android' }
-		})*/
+		})
 
-		/*fireEvent.click(screen.getByText('Cadastrar Produto'))
+		fireEvent.click(screen.getByTestId('submit_button'))
 
 		await waitFor(() => {
 			expect(mockedProductService.createProduct).toHaveBeenCalledWith({
@@ -51,7 +51,7 @@ describe('CadastroProduto', () => {
 				category: 'eletronicos',
 				description: 'Smartphone Android'
 			})
-		})*/
+		})
 	})
 
 	it('deve exibir erros de validação quando campos obrigatórios estão vazios', async () => {
