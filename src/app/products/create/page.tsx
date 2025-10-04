@@ -4,6 +4,7 @@ import {useForm} from "react-hook-form";
 import {Input} from "@/components/Input";
 import Select from "@/components/Select";
 import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
+import Textarea from "@/components/Textarea";
 
 type FormValues = {
 	name: string;
@@ -23,7 +24,12 @@ export default function CadastroProduto() {
 
 	const onSubmit = async (data: FormValues) => {
 		try {
-			await ProductHttpService.createProduct(data);
+			const productData = {
+				...data,
+				price: Number(data.price),
+				quantity_in_stock: Number(data.quantity_in_stock),
+			};
+			await ProductHttpService.createProduct(productData);
 			console.log("Produto cadastrado:", data);
 			reset();
 		} catch (error) {
@@ -87,10 +93,12 @@ export default function CadastroProduto() {
 					<Select label="Categoria"
 							register={{...register("category", {required: "Selecione uma categoria"})}}
 							placeholder="Selecione a categoria" error={errors.category}
+							testId="test_category_id"
 							options={[{value: "eletronicos", label: "Eletrônicos"}, {value: "roupas", label: "Roupas"}, {value: "moveis", label: "Móveis"}]}
 					/>
 					{/* Descrição */}
-					<div>
+					<Textarea testId="test_description_id" label="Descrição" register={{...register("description", {required: "Descreva o produto"})}} placeholder="Descreva o produto detalhadamente..." rows={4} error={errors.description} />
+					{/*<div>
 						<label className="block text-sm font-medium text-gray-700">
 							Descrição
 						</label>
@@ -103,7 +111,7 @@ export default function CadastroProduto() {
 						{errors.description && (
 							<p className="text-red-500 text-sm mt-1">{errors.description.message}</p>
 						)}
-					</div>
+					</div>*/}
 
 					{/* Botões */}
 					<div className="flex justify-between pt-4">
@@ -117,6 +125,7 @@ export default function CadastroProduto() {
 						<button
 							type="submit"
 							className="px-6 py-2 bg-gray-900 text-white rounded-lg shadow hover:bg-gray-800"
+							data-testid="submit_button"
 						>
 							Cadastrar Produto
 						</button>
