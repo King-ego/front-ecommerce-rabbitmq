@@ -1,4 +1,5 @@
-import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import {FieldError, UseFormRegisterReturn} from "react-hook-form";
+import {InputHTMLAttributes} from "react";
 
 type InputProps = {
 	label: string;
@@ -7,6 +8,7 @@ type InputProps = {
 	placeholder?: string;
 	error?: FieldError;
 	register: UseFormRegisterReturn;
+	testId?: string;
 };
 
 export function Input(data: InputProps) {
@@ -15,8 +17,9 @@ export function Input(data: InputProps) {
 		type = "text",
 		placeholder,
 		error,
+		step,
 		register,
-		step
+		testId
 	} = data;
 	return (
 		<div className="w-full">
@@ -26,6 +29,7 @@ export function Input(data: InputProps) {
 				placeholder={placeholder}
 				step={step}
 				{...register}
+				data-testid={testId}
 				className={`text-gray-500 w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500
           ${error ? "border-red-500" : "border-gray-300"}
         `}
