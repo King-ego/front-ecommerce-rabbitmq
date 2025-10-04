@@ -3,7 +3,6 @@ import '@testing-library/jest-dom'
 import CadastroProduto from '@/app/products/create/page'
 import { ProductHttpService } from '@/requests/http/services/ProductHttpService'
 
-// Mock do ProductHttpService
 jest.mock('@/requests/http/services/ProductHttpService', () => ({
 	ProductHttpService: {
 		createProduct: jest.fn(),
@@ -18,21 +17,19 @@ describe('CadastroProduto', () => {
 	})
 
 	it('deve cadastrar produto com dados válidos', async () => {
-		mockedProductService.createProduct.mockResolvedValue()
+		mockedProductService.createProduct.mockResolvedValue(undefined)
 
 		render(<CadastroProduto />)
 
-		// Preencher formulário
 		fireEvent.change(screen.getByPlaceholderText('Digite o nome do produto'), {
 			target: { value: 'Smartphone' }
 		})
 
-		fireEvent.change(screen.getByDisplayValue(''), {
+		fireEvent.change(screen.getByLabelText('Preço (R$)'), {
 			target: { value: '999.99' }
 		})
 
-		const quantityInput = screen.getByLabelText('Quantidade em Estoque')
-		fireEvent.change(quantityInput, {
+		fireEvent.change(screen.getByLabelText('Quantidade em Estoque'), {
 			target: { value: '10' }
 		})
 
@@ -44,10 +41,8 @@ describe('CadastroProduto', () => {
 			target: { value: 'Smartphone Android' }
 		})
 
-		// Submeter formulário
 		fireEvent.click(screen.getByText('Cadastrar Produto'))
 
-		// Verificar se o serviço foi chamado
 		await waitFor(() => {
 			expect(mockedProductService.createProduct).toHaveBeenCalledWith({
 				name: 'Smartphone',
