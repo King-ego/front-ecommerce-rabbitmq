@@ -16,7 +16,7 @@ describe('CadastroProduto', () => {
 		jest.clearAllMocks()
 	})
 
-	it('deve cadastrar produto com dados válidos', async () => {
+	it('Create product with valid input', async () => {
 		mockedProductService.createProduct.mockResolvedValue(undefined);
 
 		render(<CadastroProduto />)
@@ -54,15 +54,16 @@ describe('CadastroProduto', () => {
 		})
 	})
 
-	it('deve exibir erros de validação quando campos obrigatórios estão vazios', async () => {
+	it('fields empty in send', async () => {
 		render(<CadastroProduto />)
 
-		fireEvent.click(screen.getByText('Cadastrar Produto'))
+		fireEvent.click(screen.getByTestId('submit_button'))
 
 		await waitFor(() => {
 			expect(screen.getByText('Informe o nome do produto')).toBeInTheDocument()
 			expect(screen.getByText('Informe o preço')).toBeInTheDocument()
 			expect(screen.getByText('Informe a quantidade')).toBeInTheDocument()
+			expect(screen.getByText('Descreva o produto')).toBeInTheDocument()
 		})
 
 		expect(mockedProductService.createProduct).not.toHaveBeenCalled()
