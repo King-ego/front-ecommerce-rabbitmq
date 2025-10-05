@@ -8,7 +8,7 @@ import {Suspense} from "react";
 export default async function Home() {
 	const products = await ProductHttpService.getProducts();
 
-	const formatPrice = (price: number) => {
+	const formatPrice = ((price: number) => {
 		{/*<span className="text-2xl font-bold text-gray-900">R$ 2.499</span>
 									<span className="text-sm text-gray-500">,99</span>*/}
 		const value = Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(price)
@@ -20,7 +20,7 @@ export default async function Home() {
 				{decimal && <span className="text-sm text-gray-500">,{decimal}</span>}
 			</span>
 		)
-	}
+	})
 
 	return (
 		/*<section className="w-full">
@@ -47,34 +47,31 @@ export default async function Home() {
 				<p className="text-gray-200">Gerencie todos os produtos do seu catálogo</p>
 			</div>
 
-			<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+			<div className="rounded-lg shadow-sm p-6 mb-6">
 				<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
 					<div className="flex-1">
 						<div className="relative">
-							<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-								<svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
-									 viewBox="0 0 24 24">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-										  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-								</svg>
+							<div className="absolute inset-y-0 left-0 pl-3 flex items-center">
+								<button
+									className="text-white font-medium transition duration-200 flex items-center gap-2"
+								>
+									<svg className="w-5 h-5" fill="none" stroke="#171717" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+											  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+									</svg>
+
+								</button>
 							</div>
 							<input
 								type="text"
 								placeholder="Pesquisar produtos por nome, categoria..."
-								className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+								className="block w-full pl-10 pr-3 py-2 text-gray-600 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 							/>
 						</div>
 					</div>
 
-					<button
-						className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-200 flex items-center gap-2">
-						<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-								  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-						</svg>
 
-					</button>
 				</div>
 			</div>
 
@@ -119,8 +116,6 @@ export default async function Home() {
 								</p>
 								<div className="flex justify-between items-center mb-3">
 									<div>
-										{/*<span className="text-2xl font-bold text-gray-900">R$ 2.499</span>
-									<span className="text-sm text-gray-500">,99</span>*/}
 										{formatPrice(product.price)}
 									</div>
 									<div className="text-sm text-gray-600">
