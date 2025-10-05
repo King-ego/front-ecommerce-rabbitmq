@@ -30,10 +30,9 @@ export default function CadastroProduto() {
 				quantity_in_stock: Number(data.quantity_in_stock),
 			};
 			await ProductHttpService.createProduct(productData);
-			console.log("Produto cadastrado:", data);
 			reset();
 		} catch (error) {
-			console.error("Erro ao cadastrar produto:", error);
+			console.error("Erro ao cadastrar produto: ", error);
 		}
 	};
 
