@@ -41,7 +41,7 @@ export default async function Home() {
                 <>{JSON.stringify(products, null, 2) }</>
             </div>*!/}
 		</section>*/
-		<div className="container mx-auto px-4 py-8 bg-[black] min-h-screen">
+		<div className="container mx-auto px-4 py-8 bg-[#171717] min-h-screen">
 			<div className="mb-8">
 				<h1 className="text-3xl font-bold text-gray-400 mb-2">Produtos Cadastrados</h1>
 				<p className="text-gray-200">Gerencie todos os produtos do seu catálogo</p>
@@ -142,128 +142,6 @@ export default async function Home() {
 						</div>
 					))}
 				</Suspense>
-
-
-
-				{/*<div
-					className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition duration-200">
-					<div className="h-48 bg-gray-200 relative">
-						<img
-							src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-							alt="Produto"
-							className="w-full h-full object-cover"
-						/>
-						<div className="absolute top-3 right-3">
-                        <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full font-medium">
-                            Sem estoque
-                        </span>
-						</div>
-					</div>
-
-					<div className="p-4">
-						<div className="mb-2">
-                        <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded">
-                            Casa & Cozinha
-                        </span>
-						</div>
-
-						<h3 className="font-semibold text-gray-800 mb-1 text-lg">Cafeteira Elétrica</h3>
-						<p className="text-xs text-gray-500 mb-3">cafeteira-eletrica-premium</p>
-
-						<p className="text-gray-600 text-sm mb-4 line-clamp-2">
-							Cafeteira automática com programação digital e jarra térmica de 1.5L.
-						</p>
-
-						<div className="flex justify-between items-center mb-3">
-							<div>
-								<span className="text-2xl font-bold text-gray-900">R$ 389</span>
-								<span className="text-sm text-gray-500">,90</span>
-							</div>
-							<div className="text-sm text-red-600">
-								<span className="font-medium">0</span> em estoque
-							</div>
-						</div>
-
-						<div className="flex gap-2">
-							<button
-								className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-3 rounded-lg text-sm font-medium transition duration-200">
-								Editar
-							</button>
-							<button
-								className="flex-1 bg-red-50 hover:bg-red-100 text-red-600 py-2 px-3 rounded-lg text-sm font-medium transition duration-200">
-								Excluir
-							</button>
-						</div>
-					</div>
-				</div>
-
-				<div
-					className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition duration-200">
-					<div className="h-48 bg-gray-200 relative">
-						<img
-							src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-							alt="Produto"
-							className="w-full h-full object-cover"
-						/>
-						<div className="absolute top-3 right-3">
-                        <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">
-                            Em estoque
-                        </span>
-						</div>
-					</div>
-
-					<div className="p-4">
-						<div className="mb-2">
-                        <span className="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-1 rounded">
-                            Áudio
-                        </span>
-						</div>
-
-						<h3 className="font-semibold text-gray-800 mb-1 text-lg">Fone Bluetooth</h3>
-						<p className="text-xs text-gray-500 mb-3">fone-bluetooth-noise-canceling</p>
-
-						<p className="text-gray-600 text-sm mb-4 line-clamp-2">
-							Fone de ouvido com cancelamento de ruído ativo e bateria de 30 horas.
-						</p>
-
-						<div className="flex justify-between items-center mb-3">
-							<div>
-								<span className="text-2xl font-bold text-gray-900">R$ 899</span>
-								<span className="text-sm text-gray-500">,00</span>
-							</div>
-							<div className="text-sm text-gray-600">
-								<span className="font-medium">15</span> em estoque
-							</div>
-						</div>
-
-						<div className="flex gap-2">
-							<button
-								className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-3 rounded-lg text-sm font-medium transition duration-200">
-								Editar
-							</button>
-							<button
-								className="flex-1 bg-red-50 hover:bg-red-100 text-red-600 py-2 px-3 rounded-lg text-sm font-medium transition duration-200">
-								Excluir
-							</button>
-						</div>
-					</div>
-				</div>*/}
-
-				{/*<div
-					className="bg-white rounded-lg shadow-sm border-2 border-dashed border-gray-300 hover:border-blue-400 transition duration-200 flex items-center justify-center min-h-[400px]">
-					<button className="text-center p-6 group">
-						<div
-							className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition duration-200">
-							<svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor"
-								 viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									  d="M12 4v16m8-8H4"></path>
-							</svg>
-						</div>
-						<h3 className="font-semibold text-gray-700 mb-1">Cadastrar Produto</h3>
-						<p className="text-sm text-gray-500">Adicione um novo produto ao catálogo</p>
-					</button>
-				</div>*/}
 			</div>
 		</div>
 	);
