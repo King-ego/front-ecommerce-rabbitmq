@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 import clsx from "clsx";
-import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
-import {Suspense, useEffect, useState} from "react";
+import { ProductHttpService } from "@/requests/http/services/ProductHttpService";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { redirect } from "next/navigation";
 import {useProductStore} from "@/store";
 
 export default function Home() {
 	const {products, setProducts} = useProductStore();
 	const [loading, setLoading] = useState(false);
+	const ref = useRef<HTMLInputElement | null>(null);
 
 	useEffect(()=> {
 		setLoading((state) => !state);
@@ -19,9 +21,9 @@ export default function Home() {
 			.finally(()=>setLoading(state => !state))
 	},[])
 
+	const handleSearch = () => {}
+
 	const formatPrice = ((price: number) => {
-		{/*<span className="text-2xl font-bold text-gray-900">R$ 2.499</span>
-									<span className="text-sm text-gray-500">,99</span>*/}
 		const value = Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(price)
 
 		const [integer, decimal] = value.split(',');
@@ -66,6 +68,7 @@ export default function Home() {
 							</div>
 							<input
 								type="text"
+								ref={ref}
 								placeholder="Pesquisar produtos por nome, categoria..."
 								className="block w-full pl-10 pr-3 py-2 text-gray-600 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 							/>
