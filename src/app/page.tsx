@@ -1,12 +1,23 @@
-'use server';
+'use client';
 
 import Image from "next/image";
 import clsx from "clsx";
 import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
-import {Suspense} from "react";
+import {Suspense, useEffect, useState} from "react";
+import {useProductStore} from "@/store";
 
-export default async function Home() {
-	const products = await ProductHttpService.getProducts();
+export default function Home() {
+	const {products, setProducts} = useProductStore();
+	const [loading, setLoading] = useState(false);
+
+	useEffect(()=> {
+		setLoading((state) => !state);
+		ProductHttpService.getProducts()
+			.then(resp=> {
+				setProducts(resp)
+			})
+			.finally(()=>setLoading(state => !state))
+	},[])
 
 	const formatPrice = ((price: number) => {
 		{/*<span className="text-2xl font-bold text-gray-900">R$ 2.499</span>
@@ -22,26 +33,16 @@ export default async function Home() {
 		)
 	})
 
-	return (
-		/*<section className="w-full">
-			<div className="flex flex-wrap p-8 gap-4">
-				{products?.map((product) =>
-					<div key={product.id}>
-						<Image src={`https://dummyimage.com/600x400/cccccc/000000&text=`} alt={`Product`} width={300}
-							   height={200} priority/>
-						<Link href={`/product/${product.slug}`}>{product.name}</Link>
-						<p>{product.description}</p>
-						<p>{Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(product.price)}</p>
-					</div>
-				)}
+	if(!loading && !products.length) {
+		return (
+			<div className="flex items-center justify-center min-h-screen bg-gray-100">
+				<div className="text-gray-500">Nenhum Produto Encontrado</div>
 			</div>
+		)
+	}
 
-			{/!*<div>
-                <Image src='https://dummyimage.com/600x400/cccccc/000000&text=' alt={""} width={300} height={300} />
-                <>{JSON.stringify(products, null, 2) }</>
-            </div>*!/}
-		</section>*/
-		<div className="container mx-auto px-4 py-8 bg-[#171717] min-h-screen">
+	return (
+		<section className="container mx-auto px-4 py-8 bg-[#171717] min-h-screen">
 			<div className="mb-8">
 				<h1 className="text-3xl font-bold text-gray-400 mb-2">Produtos Cadastrados</h1>
 				<p className="text-gray-200">Gerencie todos os produtos do seu catálogo</p>
@@ -76,7 +77,7 @@ export default async function Home() {
 			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-				<Suspense fallback={<div>Nenhum produto foi encontrado</div>}>
+				<Suspense fallback={<div>Procurando Produtos</div>}>
 					{products.map(product => (
 						<div
 							key={product.id}
@@ -138,6 +139,6 @@ export default async function Home() {
 					))}
 				</Suspense>
 			</div>
-		</div>
+		</section>
 	);
 }
