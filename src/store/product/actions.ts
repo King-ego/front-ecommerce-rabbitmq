@@ -12,7 +12,6 @@ export const createProductSlice: StateCreator<ProductState> = (set) => ({
 			products: state.products.filter((p) => p.id !== productId),
 		})),
 	setProducts: (products) => {
-		console.log({products});
 		set({products})
 	},
 });
