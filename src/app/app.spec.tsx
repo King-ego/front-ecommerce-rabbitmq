@@ -85,7 +85,7 @@ describe('App Component', () => {
 		})
 
 		fireEvent.click(screen.getByTestId('search_button'))
-		
+
 		await waitFor(() => {
 				expect(mockPush).not.toHaveBeenCalledWith('/products/search?q=test');
 		})
