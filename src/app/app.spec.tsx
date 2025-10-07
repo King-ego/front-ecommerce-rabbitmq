@@ -1,6 +1,11 @@
-import {render} from "@testing-library/react";
+import {render, fireEvent, screen, waitFor} from "@testing-library/react";
 import AppPage from "./page"
 import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
+
+jest.mock('next/navigation', () => ({
+	redirect: jest.fn(),
+}));
+
 
 describe('App Component', () => {
 	beforeEach(() => {
@@ -30,5 +35,26 @@ describe('App Component', () => {
 		const { findByText } = render(<AppPage />);
 		expect(await findByText("Nenhum Produto Encontrado")).toBeInTheDocument();
 
+	});
+
+
+	it('should handle click and redirect', async () => {
+		const mockPush = jest.fn();
+		const { redirect } = require('next/navigation');
+		(redirect as jest.Mock).mockImplementation((url: string) => mockPush(url));
+
+
+		render(<AppPage/>)
+
+		fireEvent.change(screen.getByTestId('search_input'), {
+			target: { value: 'test' }
+		})
+
+		fireEvent.click(screen.getByTestId('search_button'))
+
+		await waitFor(() => {
+				expect(mockPush).toHaveBeenCalledWith('/products/search?q=test');
+			}
+		)
 	});
 })
