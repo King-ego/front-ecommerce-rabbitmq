@@ -72,4 +72,23 @@ describe('App Component', () => {
 			}
 		)
 	});
+
+	it('should handle click and redirect name wrong', async () => {
+		const mockPush = jest.fn();
+		const { redirect } = require('next/navigation');
+		(redirect as jest.Mock).mockImplementation((url: string) => mockPush(url));
+
+		render(<AppPage/>)
+
+		fireEvent.change(screen.getByTestId('search_input'), {
+			target: { value: 'test1' }
+		})
+
+		fireEvent.click(screen.getByTestId('search_button'))
+		
+		await waitFor(() => {
+				expect(mockPush).not.toHaveBeenCalledWith('/products/search?q=test');
+		})
+
+	})
 })
