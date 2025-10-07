@@ -63,6 +63,7 @@ export default function Home() {
 								<button
 									className="text-white font-medium transition duration-200 flex items-center gap-2"
 									onClick={() => handleSearch()}
+									data-testid="search_button"
 								>
 									<svg className="w-5 h-5" fill="none" stroke="#171717" viewBox="0 0 24 24">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
