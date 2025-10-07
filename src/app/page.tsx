@@ -21,7 +21,11 @@ export default function Home() {
 			.finally(()=>setLoading(state => !state))
 	},[])
 
-	const handleSearch = () => {}
+	const handleSearch = () => {
+		if (ref.current?.value) {
+			redirect(`/products/search?q=${ref.current.value || ''}`);
+		}
+	}
 
 	const formatPrice = ((price: number) => {
 		const value = Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(price)
@@ -58,6 +62,7 @@ export default function Home() {
 							<div className="absolute inset-y-0 left-0 pl-3 flex items-center">
 								<button
 									className="text-white font-medium transition duration-200 flex items-center gap-2"
+									onClick={() => handleSearch()}
 								>
 									<svg className="w-5 h-5" fill="none" stroke="#171717" viewBox="0 0 24 24">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
