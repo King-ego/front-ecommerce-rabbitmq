@@ -57,4 +57,19 @@ describe('App Component', () => {
 			}
 		)
 	});
+
+	it('should handle click and not redirect', async () => {
+		const mockPush = jest.fn();
+		const { redirect } = require('next/navigation');
+		(redirect as jest.Mock).mockImplementation((url: string) => mockPush(url));
+
+		render(<AppPage/>)
+
+		fireEvent.click(screen.getByTestId('search_button'))
+
+		await waitFor(() => {
+				expect(mockPush).not.toHaveBeenCalledWith('/products');
+			}
+		)
+	});
 })
