@@ -81,7 +81,7 @@ describe('App Component', () => {
 		render(<AppPage/>)
 
 		fireEvent.change(screen.getByTestId('search_input'), {
-			target: { value: 'test1' }
+			target: { value: 'test2' }
 		})
 
 		fireEvent.click(screen.getByTestId('search_button'))
