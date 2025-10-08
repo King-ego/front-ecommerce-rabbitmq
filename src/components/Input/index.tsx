@@ -23,6 +23,7 @@ export function Input(data: InputProps) {
 	return (
 		<div className="w-full">
 			<label className="block text-sm font-medium text-gray-700">{label}</label>
+
 			<input
 				type={type}
 				placeholder={placeholder}
