@@ -47,4 +47,13 @@ describe("Select Component", () => {
 		render(<TestWrapper/>)
 		expect(screen.getByText("Select an option")).toBeInTheDocument();
 	});
+
+	it('should accept user selection', async () => {
+		render(<TestWrapper/>);
+		const select = screen.getByTestId("test-select");
+
+		fireEvent.change(select, { target: { value: 'option1' } });
+		expect(select).toHaveValue('option1');
+	}
+	);
 });
