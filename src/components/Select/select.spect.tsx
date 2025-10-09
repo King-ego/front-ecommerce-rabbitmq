@@ -42,4 +42,9 @@ describe("Select Component", () => {
 		render(<TestWrapper/>)
 		expect(screen.getByTestId("test-select")).toBeInTheDocument();
 	});
+
+	it('should render placeholder', async () => {
+		render(<TestWrapper/>)
+		expect(screen.getByText("Select an option")).toBeInTheDocument();
+	});
 });
