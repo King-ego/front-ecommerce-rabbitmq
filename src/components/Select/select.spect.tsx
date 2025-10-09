@@ -32,3 +32,14 @@ function TestWrapper() {
 		</form>
 	);
 }
+
+describe("Select Component", () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	})
+
+	it('should render select success with label', async () => {
+		render(<TestWrapper/>)
+		expect(screen.getByTestId("test-select")).toBeInTheDocument();
+	});
+});
