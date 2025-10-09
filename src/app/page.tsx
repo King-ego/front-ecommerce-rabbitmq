@@ -8,8 +8,8 @@ import { redirect } from "next/navigation";
 import {useProductStore} from "@/store";
 
 export default function Home() {
-	const {products, setProducts} = useProductStore();
-	const [loading, setLoading] = useState(false);
+	const { products, setProducts } = useProductStore();
+	const [ loading, setLoading ] = useState(false);
 	const ref = useRef<HTMLInputElement | null>(null);
 
 	useEffect(()=> {
