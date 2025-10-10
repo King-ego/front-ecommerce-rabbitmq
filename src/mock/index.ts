@@ -8,7 +8,6 @@ export const mockCategories = [
 	{ id: 7, name: "Alimentos e Bebidas" },
 	{ id: 8, name: "Automóveis e Peças" },
 	{ id: 9, name: "Móveis" },
-	{ id: 10, name: "Brinquedos e Jogos" }
 ];
 
 export const mockProducts = [
