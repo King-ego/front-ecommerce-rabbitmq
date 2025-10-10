@@ -54,7 +54,7 @@ export default function Home() {
 				<p className="text-gray-200">Gerencie todos os produtos do seu catálogo</p>
 			</div>
 
-			<div className="rounded-lg shadow-sm p-6 mb-6">
+			<div className="rounded-lg shadow-sm mb-6">
 				<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
 					<div className="flex-1">
