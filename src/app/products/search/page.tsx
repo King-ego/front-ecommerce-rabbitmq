@@ -1,3 +1,161 @@
-export default function SearchPage() {
-	return (<div>ol</div>)
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+
+export default function ProductManagement() {
+	const [searchQuery, setSearchQuery] = useState('');
+	const router = useRouter();
+	const searchParams = useSearchParams();
+
+	// Sincroniza o input com a query da URL
+	useEffect(() => {
+		const query = searchParams.get('q') || '';
+		setSearchQuery(query);
+	}, [searchParams]);
+
+	const handleSearch = (e: React.FormEvent) => {
+		e.preventDefault();
+		const params = new URLSearchParams();
+		if (searchQuery.trim()) {
+			params.set('q', searchQuery.trim());
+		}
+		router.push(`/products/search?${params.toString()}`);
+	};
+
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchQuery(e.target.value);
+	};
+
+	const products = [
+		{
+			category: "Casa & Cozinha",
+			name: "Cafeteira Elétrica",
+			description: "Cafeteira automática com programação digital e jarra térmica de 1.5L.",
+			price: "R$ 389.90",
+			stock: 12,
+			status: "in-stock"
+		},
+		{
+			category: "Auto",
+			name: "Fone Bluetooth",
+			description: "Fone de ouvido com cancelamento de ruído ativo e bateria de 30 horas.",
+			price: "R$ 899.00",
+			stock: 60,
+			status: "in-stock"
+		},
+		{
+			category: "Eletrônicos",
+			name: "Smartphone Premium",
+			description: "Smartphone de última geração com câmera típia, 256GB de armazenamen...",
+			price: "R$ 2.499.99",
+			stock: 0,
+			status: "out-of-stock"
+		},
+		{
+			category: "Eletrônicos",
+			name: "Telefone Preto",
+			description: "Um smartphone dourado/bege, que pelo design é um modelo mais antigo do...",
+			price: "R$ 1.002.78",
+			stock: 60,
+			status: "in-stock"
+		}
+	];
+
+	return (
+		<div className="min-h-screen bg-gray-50 p-6">
+			<div className="max-w-4xl mx-auto">
+				{/* Cabeçalho */}
+				<div className="mb-8">
+					<h1 className="text-3xl font-bold text-gray-900 mb-2">
+						Produtos Cadastrados
+					</h1>
+					<p className="text-gray-600 mb-6">
+						Gerencie todos os produtos do seu catálogo
+					</p>
+
+					{/* Input de busca */}
+					<form onSubmit={handleSearch} className="mb-8">
+						<div className="relative">
+							<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+								<svg
+									className="h-5 w-5 text-gray-400"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2}
+										d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+									/>
+								</svg>
+							</div>
+							<input
+								type="text"
+								value={searchQuery}
+								onChange={handleInputChange}
+								placeholder="Pesquisar produtos por nome, categoria..."
+								className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+							/>
+						</div>
+					</form>
+				</div>
+
+				{/* Lista de produtos */}
+				<div className="space-y-6">
+					{products.map((product, index) => (
+						<div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+							{/* Categoria */}
+							<div className="mb-4">
+                <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+					product.status === 'out-of-stock'
+						? 'bg-red-100 text-red-800'
+						: 'bg-green-100 text-green-800'
+				}`}>
+                  {product.status === 'out-of-stock' ? 'Sem estoque' : 'Em estoque'}
+                </span>
+								<span className="ml-2 text-sm text-gray-500">{product.category}</span>
+							</div>
+
+							{/* Nome do produto */}
+							<h3 className="text-xl font-semibold text-gray-900 mb-2">
+								{product.name}
+							</h3>
+
+							{/* Descrição */}
+							<p className="text-gray-600 mb-4">
+								{product.description}
+							</p>
+
+							{/* Preço e estoque */}
+							<div className="flex justify-between items-center mb-4">
+                <span className="text-2xl font-bold text-gray-900">
+                  {product.price}
+                </span>
+								<span className={`px-3 py-1 rounded-full text-sm font-medium ${
+									product.stock > 0
+										? 'bg-green-100 text-green-800'
+										: 'bg-red-100 text-red-800'
+								}`}>
+                  {product.stock} em estoque
+                </span>
+							</div>
+
+							{/* Botões de ação */}
+							<div className="flex space-x-4">
+								<button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
+									Editar
+								</button>
+								<button className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium">
+									Excluir
+								</button>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }
