@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams, redirect } from 'next/navigation';
 
 export default function ProductManagement() {
 	const [searchQuery, setSearchQuery] = useState('');
@@ -11,6 +11,7 @@ export default function ProductManagement() {
 	// Sincroniza o input com a query da URL
 	useEffect(() => {
 		const query = searchParams.get('q') || '';
+		if (!query) redirect("/");
 		setSearchQuery(query);
 	}, [searchParams]);
 
