@@ -29,41 +29,6 @@ export default function ProductManagement() {
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchQuery(e.target.value);
 	};
-/*
-	const products = [
-		{
-			category: "Casa & Cozinha",
-			name: "Cafeteira Elétrica",
-			description: "Cafeteira automática com programação digital e jarra térmica de 1.5L.",
-			price: "R$ 389.90",
-			stock: 12,
-			status: "in-stock"
-		},
-		{
-			category: "Auto",
-			name: "Fone Bluetooth",
-			description: "Fone de ouvido com cancelamento de ruído ativo e bateria de 30 horas.",
-			price: "R$ 899.00",
-			stock: 60,
-			status: "in-stock"
-		},
-		{
-			category: "Eletrônicos",
-			name: "Smartphone Premium",
-			description: "Smartphone de última geração com câmera típia, 256GB de armazenamen...",
-			price: "R$ 2.499.99",
-			stock: 0,
-			status: "out-of-stock"
-		},
-		{
-			category: "Eletrônicos",
-			name: "Telefone Preto",
-			description: "Um smartphone dourado/bege, que pelo design é um modelo mais antigo do...",
-			price: "R$ 1.002.78",
-			stock: 60,
-			status: "in-stock"
-		}
-	];*/
 
 	return (
 		<div className="min-h-screen bg-gray-50 p-6">
