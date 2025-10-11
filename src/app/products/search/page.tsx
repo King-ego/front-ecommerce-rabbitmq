@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams, redirect } from 'next/navigation';
+import {useProductStore} from "@/store";
 
 export default function ProductManagement() {
+	const { products } = useProductStore();
 	const [searchQuery, setSearchQuery] = useState('');
 	const router = useRouter();
 	const searchParams = useSearchParams();
@@ -27,7 +29,7 @@ export default function ProductManagement() {
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchQuery(e.target.value);
 	};
-
+/*
 	const products = [
 		{
 			category: "Casa & Cozinha",
@@ -61,7 +63,7 @@ export default function ProductManagement() {
 			stock: 60,
 			status: "in-stock"
 		}
-	];
+	];*/
 
 	return (
 		<div className="min-h-screen bg-gray-50 p-6">
@@ -111,11 +113,11 @@ export default function ProductManagement() {
 							{/* Categoria */}
 							<div className="mb-4">
                 <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
-					product.status === 'out-of-stock'
+					product.quantity_in_stock < 1
 						? 'bg-red-100 text-red-800'
 						: 'bg-green-100 text-green-800'
 				}`}>
-                  {product.status === 'out-of-stock' ? 'Sem estoque' : 'Em estoque'}
+                  {product.quantity_in_stock < 1 ? 'Sem estoque' : 'Em estoque'}
                 </span>
 								<span className="ml-2 text-sm text-gray-500">{product.category}</span>
 							</div>
@@ -136,11 +138,11 @@ export default function ProductManagement() {
                   {product.price}
                 </span>
 								<span className={`px-3 py-1 rounded-full text-sm font-medium ${
-									product.stock > 0
+									product.quantity_in_stock > 0
 										? 'bg-green-100 text-green-800'
 										: 'bg-red-100 text-red-800'
 								}`}>
-                  {product.stock} em estoque
+                  {product.quantity_in_stock} em estoque
                 </span>
 							</div>
 						</div>
