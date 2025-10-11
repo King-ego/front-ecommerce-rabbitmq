@@ -13,7 +13,9 @@ export default function ProductManagement() {
 	// Sincroniza o input com a query da URL
 	useEffect(() => {
 		const query = searchParams.get('q') || '';
-		if (!query) redirect("/");
+		if (!query) {
+			redirect("/");
+		}
 		setSearchQuery(query);
 	}, [searchParams]);
 
@@ -36,7 +38,7 @@ export default function ProductManagement() {
 				{/* Cabeçalho */}
 				<div className="mb-8">
 					<h1 className="text-3xl font-bold text-gray-900 mb-2">
-						Produtos Cadastrados
+						Fitros de Produtos
 					</h1>
 					<p className="text-gray-600 mb-6">
 						Gerencie todos os produtos do seu catálogo
