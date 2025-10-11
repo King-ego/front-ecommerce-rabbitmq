@@ -22,5 +22,14 @@ export class ProductHttpService {
 		})
 
 	}
+
+	public static async getFilterProducts(query: string): Promise<Product[]> {
+		return ApiRequest<Product[]>(`/products/search?q=${query}`, {
+			cache: 'no-store',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+		})
+	}
 }
 
