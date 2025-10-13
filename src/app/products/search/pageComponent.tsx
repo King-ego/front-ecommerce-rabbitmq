@@ -10,7 +10,6 @@ export default function ProductManagement() {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 
-	// Sincroniza o input com a query da URL
 	useEffect(() => {
 		const query = searchParams.get('q') || '';
 		if (!query) {
