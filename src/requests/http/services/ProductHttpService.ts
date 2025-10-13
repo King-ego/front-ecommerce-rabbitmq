@@ -23,8 +23,9 @@ export class ProductHttpService {
 
 	}
 
-	public static async getFilterProducts(query: string): Promise<Product[]> {
-		return ApiRequest<Product[]>(`/products/search?q=${query}`, {
+	public static async getFilterProducts(query: {identifier: string}): Promise<Product[]> {
+		const queryString = buildQueryString(query);
+		return ApiRequest<Product[]>(`/products/search?q${queryString}`, {
 			cache: 'no-store',
 			headers: {
 				'Content-Type': 'application/json'
