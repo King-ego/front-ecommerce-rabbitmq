@@ -77,7 +77,10 @@ describe('App Component', () => {
 		const mockPush = jest.fn();
 		type RedirectType = typeof redirect;
 
-		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url, options) => mockPush(url));
+		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url, options) => {
+			mockPush(url, options);
+			throw new Error("redirect called");
+		});
 		render(<AppPage/>)
 
 		fireEvent.change(screen.getByTestId('search_input'), {
