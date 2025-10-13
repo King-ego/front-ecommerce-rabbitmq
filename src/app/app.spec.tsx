@@ -1,6 +1,7 @@
 import {render, fireEvent, screen, waitFor} from "@testing-library/react";
 import AppPage from "./page"
 import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
+import { redirect } from "next/navigation";
 
 jest.mock('next/navigation', () => ({
 	redirect: jest.fn(),
@@ -40,10 +41,9 @@ describe('App Component', () => {
 
 	it('should handle click and redirect', async () => {
 		const mockPush = jest.fn();
-		const { redirect } = require('next/navigation');
-		(redirect as jest.Mock).mockImplementation((url: string) => mockPush(url));
+		type RedirectType = typeof redirect;
 
-
+		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url, options) => mockPush(url));
 		render(<AppPage/>)
 
 		fireEvent.change(screen.getByTestId('search_input'), {
@@ -60,9 +60,9 @@ describe('App Component', () => {
 
 	it('should handle click and not redirect', async () => {
 		const mockPush = jest.fn();
-		const { redirect } = require('next/navigation');
-		(redirect as jest.Mock).mockImplementation((url: string) => mockPush(url));
+		type RedirectType = typeof redirect;
 
+		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url, options) => mockPush(url));
 		render(<AppPage/>)
 
 		fireEvent.click(screen.getByTestId('search_button'))
@@ -75,9 +75,9 @@ describe('App Component', () => {
 
 	it('should handle click and redirect name wrong', async () => {
 		const mockPush = jest.fn();
-		const { redirect } = require('next/navigation');
-		(redirect as jest.Mock).mockImplementation((url: string) => mockPush(url));
+		type RedirectType = typeof redirect;
 
+		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url, options) => mockPush(url));
 		render(<AppPage/>)
 
 		fireEvent.change(screen.getByTestId('search_input'), {
