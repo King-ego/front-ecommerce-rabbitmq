@@ -1,5 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import SearchPage from "./page";
+import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
 
 jest.mock('next/navigation', () => ({
 	redirect: jest.fn(),
@@ -9,6 +10,21 @@ jest.mock('next/navigation', () => ({
 	}),
 	useSearchParams: jest.fn().mockReturnValue(new URLSearchParams()),
 }));
+
+jest.mock('@/requests/http/services/ProductHttpService', () => ({
+	ProductHttpService: {
+		getProducts: jest.fn().mockResolvedValue([{
+			id: "1",
+			name: "Produto Teste",
+			slug: "produto-teste",
+			price: 100.00,
+			quantity_in_stock: 10,
+			category: "categoria-teste",
+			description: "Descrição do produto teste",
+			image_url: "https://via.placeholder.com/150"
+		}]),
+	}
+}))
 
 describe('Search Page', () => {
 	beforeEach(() => {
