@@ -1,6 +1,6 @@
 import Textarea from './index';
 
-import {render, screen, fireEvent} from "@testing-library/react";
+import {render, screen} from "@testing-library/react";
 import {useForm} from "react-hook-form";
 
 type FormValues = {
