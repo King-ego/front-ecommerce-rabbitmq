@@ -19,7 +19,7 @@ export default function Home() {
 				setProducts(resp)
 			})
 			.finally(()=>setLoading(state => !state))
-	},[])
+	},[setProducts])
 
 	const handleSearch = () => {
 		if (ref.current?.value) {
