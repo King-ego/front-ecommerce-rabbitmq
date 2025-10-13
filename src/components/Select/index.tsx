@@ -17,7 +17,6 @@ export default function Select(data: InputProps) {
 		placeholder,
 		label,
 		options,
-		results,
 		testId,
 		...rest
 	} = data;
