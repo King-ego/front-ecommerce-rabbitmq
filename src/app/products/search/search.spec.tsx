@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import SearchPage from "./page";
-import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
+import { useRouter } from "next/navigation";
 
 jest.mock('next/navigation', () => ({
 	redirect: jest.fn(),
@@ -37,7 +37,7 @@ describe('Search Page', () => {
 	});
 
 	it('should sender new value in submit input', () => {
-		const { push } = require('next/navigation').useRouter();
+		const { push } = useRouter();
 		render(<SearchPage />);
 
 		fireEvent.change(screen.getByTestId("search_input"), { target: { value: 'test' } });
