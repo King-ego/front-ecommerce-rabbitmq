@@ -1,5 +1,6 @@
 import ApiRequest from "@/requests/api";
 import Product from "@/requests/interfaces/Product";
+import {buildQueryString} from "@/requests/prepareQuery";
 
 export class ProductHttpService {
 	public static async getProducts(): Promise<Product[]> {
