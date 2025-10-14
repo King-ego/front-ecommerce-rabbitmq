@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ProductManagement from "./pageComponent";
+import ProductManagement from "./_component/pageComponent";
 
 export default function Search() {
 	return (
