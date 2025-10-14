@@ -87,12 +87,10 @@ export default function ProductManagement() {
 								<span className="ml-2 text-sm text-gray-500">{product.category}</span>
 							</div>
 
-
 							<h3 className="text-xl font-semibold text-gray-900 mb-2">
 								{product.name}
 							</h3>
 
-							{/* Descrição */}
 							<p className="text-gray-600 mb-4">
 								{product.description}
 							</p>
