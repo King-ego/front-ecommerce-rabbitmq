@@ -43,7 +43,7 @@ describe('App Component', () => {
 		const mockPush = jest.fn();
 		type RedirectType = typeof redirect;
 
-		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url, options) => mockPush(url));
+		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url) => mockPush(url));
 		render(<AppPage/>)
 
 		fireEvent.change(screen.getByTestId('search_input'), {
@@ -62,7 +62,7 @@ describe('App Component', () => {
 		const mockPush = jest.fn();
 		type RedirectType = typeof redirect;
 
-		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url, options) => mockPush(url));
+		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url) => mockPush(url));
 		render(<AppPage/>)
 
 		fireEvent.click(screen.getByTestId('search_button'))
@@ -77,10 +77,7 @@ describe('App Component', () => {
 		const mockPush = jest.fn();
 		type RedirectType = typeof redirect;
 
-		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url, options) => {
-			mockPush(url, options);
-			throw new Error("redirect called");
-		});
+		(redirect as jest.MockedFunction<RedirectType>).mockImplementation((url) => mockPush(url));
 		render(<AppPage/>)
 
 		fireEvent.change(screen.getByTestId('search_input'), {
