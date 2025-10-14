@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
 			}
         ],
     },
+	allowedDevOrigins: ["local-origin.dev"]
 };
 
 export default nextConfig;
