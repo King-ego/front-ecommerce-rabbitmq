@@ -72,7 +72,6 @@ export default function ProductManagement() {
 					</form>
 				</div>
 
-				{/* Lista de produtos */}
 				<div className="space-y-6">
 					{products.map((product, index) => (
 						<div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
