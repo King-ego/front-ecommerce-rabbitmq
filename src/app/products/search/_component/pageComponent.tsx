@@ -95,7 +95,6 @@ export default function ProductManagement() {
 								{product.description}
 							</p>
 
-							{/* Preço e estoque */}
 							<div className="flex justify-between items-center mb-4">
                 <span className="text-2xl font-bold text-gray-900">
                   {product.price}
