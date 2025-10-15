@@ -6,6 +6,7 @@ import { ProductHttpService } from "@/requests/http/services/ProductHttpService"
 import { Suspense, useEffect, useRef, useState } from "react";
 import { redirect } from "next/navigation";
 import {useProductStore} from "@/store";
+import AppPage from "./_page.component";
 
 export default function Home() {
 	const { products, setProducts } = useProductStore();
@@ -27,18 +28,6 @@ export default function Home() {
 		}
 	}
 
-	const formatPrice = ((price: number) => {
-		const value = Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(price)
-
-		const [integer, decimal] = value.split(',');
-		return (
-			<span>
-				<span className="text-2xl font-bold text-gray-900">{integer}</span>
-				{decimal && <span className="text-sm text-gray-500">,{decimal}</span>}
-			</span>
-		)
-	})
-
 	if(!loading && !products.length) {
 		return (
 			<div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -48,6 +37,6 @@ export default function Home() {
 	}
 
 	return (
-		<></>
+		<AppPage products={products} handleSearch={handleSearch} />
 	);
 }
