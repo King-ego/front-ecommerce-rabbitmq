@@ -3,7 +3,7 @@
 import {useForm} from "react-hook-form";
 import {Input} from "@/components/Input";
 import Select from "@/components/Select";
-import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
+import { ProductHttpService } from "@/requests/http/services/ProductHttpService";
 import Textarea from "@/components/Textarea";
 
 type FormValues = {
@@ -53,7 +53,7 @@ export default function CadastroProduto() {
 						</svg>
 					</div>
 					<h2 className="text-2xl font-bold text-gray-800">Cadastro de Produto</h2>
-					
+
 					<p className="text-gray-500 text-sm text-center">
 						Preencha os campos abaixo para cadastrar um novo produto
 					</p>
