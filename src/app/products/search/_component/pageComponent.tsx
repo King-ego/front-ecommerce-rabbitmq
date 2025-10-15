@@ -42,7 +42,6 @@ export default function ProductManagement() {
 						Gerencie todos os produtos do seu catálogo
 					</p>
 
-					{/* Input de busca */}
 					<form onSubmit={handleSearch} className="mb-8" data-testid="search_form">
 						<div className="relative">
 							<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
