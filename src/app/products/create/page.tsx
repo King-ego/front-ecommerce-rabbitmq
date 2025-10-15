@@ -90,6 +90,7 @@ export default function CadastroProduto() {
 						>
 							Limpar
 						</button>
+						
 						<button
 							type="submit"
 							className="px-6 py-2 bg-gray-900 text-white rounded-lg shadow hover:bg-gray-800"
