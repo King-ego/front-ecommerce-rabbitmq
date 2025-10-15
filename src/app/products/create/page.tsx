@@ -53,6 +53,7 @@ export default function CadastroProduto() {
 						</svg>
 					</div>
 					<h2 className="text-2xl font-bold text-gray-800">Cadastro de Produto</h2>
+					
 					<p className="text-gray-500 text-sm text-center">
 						Preencha os campos abaixo para cadastrar um novo produto
 					</p>
@@ -90,7 +91,7 @@ export default function CadastroProduto() {
 						>
 							Limpar
 						</button>
-						
+
 						<button
 							type="submit"
 							className="px-6 py-2 bg-gray-900 text-white rounded-lg shadow hover:bg-gray-800"
