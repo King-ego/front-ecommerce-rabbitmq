@@ -59,6 +59,7 @@ export default function ProductManagement() {
 									/>
 								</svg>
 							</div>
+							
 							<input
 								type="text"
 								value={searchQuery}
