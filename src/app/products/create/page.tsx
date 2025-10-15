@@ -1,6 +1,6 @@
 "use client";
 
-import {useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Input } from "@/components/Input";
 import Select from "@/components/Select";
 import { ProductHttpService } from "@/requests/http/services/ProductHttpService";
