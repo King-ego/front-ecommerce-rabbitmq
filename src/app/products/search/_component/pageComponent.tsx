@@ -20,7 +20,9 @@ export default function ProductManagement() {
 
 	const handleSearch = (e: React.FormEvent) => {
 		e.preventDefault();
+
 		const params = new URLSearchParams();
+		
 		if (searchQuery.trim()) {
 			params.set('q', searchQuery.trim());
 		}
@@ -59,7 +61,7 @@ export default function ProductManagement() {
 									/>
 								</svg>
 							</div>
-							
+
 							<input
 								type="text"
 								value={searchQuery}
