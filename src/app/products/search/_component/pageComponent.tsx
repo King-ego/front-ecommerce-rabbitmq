@@ -22,7 +22,7 @@ export default function ProductManagement() {
 		e.preventDefault();
 
 		const params = new URLSearchParams();
-		
+
 		if (searchQuery.trim()) {
 			params.set('q', searchQuery.trim());
 		}
