@@ -1,4 +1,29 @@
-export default function AppPage() {
+"use server";
+import Image from "next/image";
+import clsx from "clsx";
+import {Suspense} from "react";
+import Product from "@/requests/interfaces/Product";
+
+interface IPageProps {
+	products: Product[];
+	handleSearch: () => void;
+}
+
+export default async function AppPage(props: IPageProps) {
+	const { products, handleSearch } = props;
+
+	const formatPrice = ((price: number) => {
+		const value = Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(price)
+
+		const [integer, decimal] = value.split(',');
+		return (
+			<span>
+				<span className="text-2xl font-bold text-gray-900">{integer}</span>
+				{decimal && <span className="text-sm text-gray-500">,{decimal}</span>}
+			</span>
+		)
+	})
+
 	return (
 		<section className="container mx-auto px-4 py-8 bg-[#171717] min-h-screen">
 			<div className="mb-8">
