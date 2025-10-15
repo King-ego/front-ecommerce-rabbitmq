@@ -71,7 +71,6 @@ export default function CadastroProduto() {
 						<Input label={"Quantidade em Estoque"}
 							   register={{...register("quantity_in_stock", {required: "Informe a quantidade"})}}
 							   type={"number"} error={errors.quantity_in_stock} testId={"test_quantity_id"}/>
-
 					</div>
 
 					<Select label="Categoria"
