@@ -17,10 +17,10 @@ export default function Home(props: HomeProps) {
 	const ref = useRef<HTMLInputElement | null>(null);
 
 	useEffect(() => {
-		if (!initialProducts.length) {
+		if (!products.length) {
 			setProducts(initialProducts);
 		}
-	}, [setProducts, initialProducts])
+	}, [setProducts, initialProducts, products])
 
 	const handleSearch = () => {
 		if (ref.current?.value) {
