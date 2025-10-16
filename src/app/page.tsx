@@ -1,8 +1,5 @@
 'use server';
 
-import {redirect} from "next/navigation";
-import clsx from "clsx";
-import {useProductStore} from "@/store";
 import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
 import Home from "@/app/Home";
 
