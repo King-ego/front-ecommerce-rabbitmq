@@ -3,12 +3,24 @@
 import {useState, useEffect} from 'react';
 import { useRouter, useSearchParams, redirect } from 'next/navigation';
 import {useProductStore} from "@/store";
+import Product from "@/requests/interfaces/Product";
 
-export default function ProductManagement() {
-	const { products } = useProductStore();
+interface SearchProps {
+	initialProducts: Product[];
+}
+
+export default function SearchPage(props: SearchProps) {
+	const { products, setProducts } = useProductStore();
+	const { initialProducts } = props;
 	const [searchQuery, setSearchQuery] = useState('');
 	const router = useRouter();
 	const searchParams = useSearchParams();
+
+	useEffect(() => {
+		if (!products.length) {
+			setProducts(initialProducts);
+		}
+	}, [setProducts, initialProducts, products])
 
 	useEffect(() => {
 		const query = searchParams.get('q') || '';
