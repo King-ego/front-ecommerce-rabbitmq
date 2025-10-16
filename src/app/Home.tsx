@@ -1,6 +1,45 @@
 "use client";
 
-export default function Home() {
+import {useEffect, useRef} from "react";
+
+import Product from "@/requests/interfaces/Product";
+import {useProductStore} from "@/store";
+import {redirect} from "next/navigation";
+import clsx from "clsx";
+
+interface HomeProps {
+	initialProducts: Product[];
+}
+
+export default function Home(props: HomeProps) {
+	const {initialProducts} = props;
+	const {products, setProducts} = useProductStore();
+	const ref = useRef<HTMLInputElement | null>(null);
+
+	useEffect(() => {
+		if (!initialProducts.length) {
+			setProducts(initialProducts);
+		}
+	}, [setProducts, initialProducts])
+
+	const handleSearch = () => {
+		if (ref.current?.value) {
+			redirect(`/products/search?q=${ref.current.value || ''}`);
+		}
+	}
+
+	const formatPrice = ((price: number) => {
+		const value = Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(price)
+
+		const [integer, decimal] = value.split(',');
+		return (
+			<span>
+				<span className="text-2xl font-bold text-gray-900">{integer}</span>
+				{decimal && <span className="text-sm text-gray-500">,{decimal}</span>}
+			</span>
+		)
+	})
+
 	return (<section className="container mx-auto px-4 py-8 bg-[#171717] min-h-screen">
 		<div className="mb-8">
 			<h1 className="text-3xl font-bold text-gray-400 mb-2">Produtos Cadastrados</h1>
