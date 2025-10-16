@@ -1,3 +1,5 @@
+"use client";
+
 export default function Home() {
 	return (<section className="container mx-auto px-4 py-8 bg-[#171717] min-h-screen">
 		<div className="mb-8">
@@ -36,67 +38,65 @@ export default function Home() {
 		</div>
 
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-			<Suspense fallback={<div>Procurando Produtos</div>}>
-				{products.map(product => (
-					<div
-						key={product.id}
-						className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition duration-200">
+			{products.map(product => (
+				<div
+					key={product.id}
+					className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition duration-200">
 
-						<div className="h-48 bg-gray-200 relative">
-							{/*<img
+					<div className="h-48 bg-gray-200 relative">
+						{/*<img
 								src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
 								alt="Produto"
 								className="w-full h-full object-cover"
 							/>*/}
-							<img className="w-full h-full object-cover"
-								 src={product.image_url || "https://dummyimage.com/600x400/cccccc/000000&text="}
-								 alt={product.name} width={800}
-								 height={80} />
-							<div className="absolute top-3 right-3">
+						<img className="w-full h-full object-cover"
+							 src={product.image_url || "https://dummyimage.com/600x400/cccccc/000000&text="}
+							 alt={product.name} width={800}
+							 height={80}/>
+						<div className="absolute top-3 right-3">
 								<span className={
 									clsx("text-xs px-2 py-1 rounded-full font-medium",
 										product.quantity_in_stock ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800')
 								}>
 									{product.quantity_in_stock ? 'Em estoque' : 'Sem estoque'}
 								</span>
-							</div>
 						</div>
+					</div>
 
-						<div className="p-4">
-							<div className="mb-2">
+					<div className="p-4">
+						<div className="mb-2">
 								<span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">
 									{product.category}
 								</span>
+						</div>
+
+						<h3 className="font-semibold text-gray-800 mb-1 text-lg">{product.name}</h3>
+
+						<p className="text-gray-600 text-sm mb-4 line-clamp-2 min-h-[40px]">
+							{product.description}
+						</p>
+						<div className="flex justify-between items-center mb-3">
+							<div>
+								{formatPrice(product.price)}
 							</div>
-
-							<h3 className="font-semibold text-gray-800 mb-1 text-lg">{product.name}</h3>
-
-							<p className="text-gray-600 text-sm mb-4 line-clamp-2 min-h-[40px]">
-								{product.description}
-							</p>
-							<div className="flex justify-between items-center mb-3">
-								<div>
-									{formatPrice(product.price)}
-								</div>
-								<div className="text-sm text-gray-600">
-									<span className="font-medium">{product.quantity_in_stock}</span> em estoque
-								</div>
-							</div>
-
-							<div className="flex gap-2">
-								<button
-									className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-3 rounded-lg text-sm font-medium transition duration-200">
-									Editar
-								</button>
-								<button
-									className="flex-1 bg-red-50 hover:bg-red-100 text-red-600 py-2 px-3 rounded-lg text-sm font-medium transition duration-200">
-									Excluir
-								</button>
+							<div className="text-sm text-gray-600">
+								<span className="font-medium">{product.quantity_in_stock}</span> em estoque
 							</div>
 						</div>
+
+						<div className="flex gap-2">
+							<button
+								className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-3 rounded-lg text-sm font-medium transition duration-200">
+								Editar
+							</button>
+							<button
+								className="flex-1 bg-red-50 hover:bg-red-100 text-red-600 py-2 px-3 rounded-lg text-sm font-medium transition duration-200">
+								Excluir
+							</button>
+						</div>
 					</div>
-				))}
-			</Suspense>
+				</div>
+			))}
 		</div>
 	</section>);
 }
