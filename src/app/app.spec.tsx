@@ -1,7 +1,6 @@
 import {render, fireEvent, screen, waitFor} from "@testing-library/react";
 import AppPage from "./Home"
-import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
-import { redirect } from "next/navigation";
+import * as Navigate from "next/navigation"
 
 jest.mock('next/navigation', () => ({
 	redirect: jest.fn(),
@@ -42,9 +41,8 @@ describe('App Component', () => {
 
 	it('should handle click and redirect', async () => {
 		const mockPush = jest.fn();
-		type RedirectType = typeof redirect;
 
-		(jest.spyOn(require("next/navigation"), "redirect") as jest.Mock)
+		(jest.spyOn(Navigate, "redirect") as unknown as jest.Mock)
 			.mockImplementation((url: string) => mockPush(url) as never);
 
 		render(<AppPage initialProducts={mockProducts}/>)
@@ -63,9 +61,7 @@ describe('App Component', () => {
 
 	it('should handle click and not redirect', async () => {
 		const mockPush = jest.fn();
-		type RedirectType = typeof redirect;
-
-		(jest.spyOn(require("next/navigation"), "redirect") as jest.Mock)
+		(jest.spyOn(Navigate, "redirect") as unknown as jest.Mock)
 			.mockImplementation((url: string) => mockPush(url) as never);
 
 		render(<AppPage initialProducts={mockProducts}/>)
@@ -80,9 +76,8 @@ describe('App Component', () => {
 
 	it('should handle click and redirect name wrong', async () => {
 		const mockPush = jest.fn();
-		type RedirectType = typeof redirect;
 
-		(jest.spyOn(require("next/navigation"), "redirect") as jest.Mock)
+		(jest.spyOn(Navigate, "redirect") as unknown as jest.Mock)
 			.mockImplementation((url: string) => mockPush(url) as never);
 
 		render(<AppPage initialProducts={mockProducts}/>)
