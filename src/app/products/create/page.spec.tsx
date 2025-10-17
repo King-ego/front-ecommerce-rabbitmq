@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import CadastroProduto from '@/app/products/create/page'
+import CadastroProduto from './CreatePage'
 import { ProductHttpService } from '@/requests/http/services/ProductHttpService'
 
 jest.mock('@/requests/http/services/ProductHttpService', () => ({
