@@ -1,10 +1,10 @@
-import { Suspense } from "react";
-import ProductManagement from "./_component/pageComponent";
+"use server"
+import SearchPage from "./SearchPage";
+import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
 
-export default function Search() {
+export default async function Search() {
+	const products = await ProductHttpService.getProducts();
 	return (
-		<Suspense fallback={<div>Carregando...</div>}>
-			<ProductManagement />
-		</Suspense>
+			<SearchPage  initialProducts={products} />
 	);
 }
