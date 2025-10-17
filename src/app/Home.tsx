@@ -6,6 +6,7 @@ import Product from "@/requests/interfaces/Product";
 import {useProductStore} from "@/store";
 import {redirect} from "next/navigation";
 import clsx from "clsx";
+import Image from "next/image";
 
 interface HomeProps {
 	initialProducts: Product[];
@@ -88,10 +89,10 @@ export default function Home(props: HomeProps) {
 								alt="Produto"
 								className="w-full h-full object-cover"
 							/>*/}
-						<img className="w-full h-full object-cover"
+						<Image className="w-full h-full object-cover"
 							 src={product.image_url || "https://dummyimage.com/600x400/cccccc/000000&text="}
 							 alt={product.name} width={800}
-							 height={80}/>
+							 height={80} priority/>
 						<div className="absolute top-3 right-3">
 								<span className={
 									clsx("text-xs px-2 py-1 rounded-full font-medium",
