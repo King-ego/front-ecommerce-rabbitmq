@@ -1,5 +1,5 @@
 import {render, fireEvent, screen, waitFor} from "@testing-library/react";
-import AppPage from "./Home"
+import AppPage from "./HomePage"
 import * as Navigate from "next/navigation"
 
 jest.mock('next/navigation', () => ({
