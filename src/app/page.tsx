@@ -1,12 +1,12 @@
 'use server';
 
 import {ProductHttpService} from "@/requests/http/services/ProductHttpService";
-import Home from "@/app/Home";
+import HomePage from "@/app/HomePage";
 
 export default async function ProductsPage() {
 	const initialProducts = await ProductHttpService.getProducts();
 
 	return (
-		<Home initialProducts={initialProducts} />
+		<HomePage initialProducts={initialProducts} />
 	);
 }
