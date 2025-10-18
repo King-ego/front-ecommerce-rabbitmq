@@ -23,6 +23,7 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+	
   return (
     <html lang="pt-BR">
       <body>
