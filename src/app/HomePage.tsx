@@ -12,7 +12,7 @@ interface HomeProps {
 	initialProducts: Product[];
 }
 
-export default function Home(props: HomeProps) {
+export default function HomePage(props: HomeProps) {
 	const {initialProducts} = props;
 	const {products, setProducts} = useProductStore();
 	const ref = useRef<HTMLInputElement | null>(null);
