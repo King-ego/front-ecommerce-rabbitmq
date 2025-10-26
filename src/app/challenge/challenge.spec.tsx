@@ -9,5 +9,6 @@ describe("ChallengePage", () => {
 	it('should render ChallengePage component', async () => {
 		render(<ChallengePage />)
 		expect(screen.getByText("Challenge Page")).toBeInTheDocument();
+
 	});
 });
