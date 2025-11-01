@@ -51,6 +51,7 @@ export default function HomePage(props: HomeProps) {
 		</div>
 
 		<div className="rounded-lg shadow-sm mb-6">
+			
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
 				<div className="flex-1">
