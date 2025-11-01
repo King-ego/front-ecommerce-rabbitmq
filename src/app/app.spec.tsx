@@ -91,6 +91,5 @@ describe('App Component', () => {
 		await waitFor(() => {
 				expect(mockPush).not.toHaveBeenCalledWith('/products/search?q=test');
 		})
-
 	})
 })
