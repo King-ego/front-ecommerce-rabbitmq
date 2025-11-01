@@ -46,6 +46,7 @@ export default function HomePage(props: HomeProps) {
 
 			<h1 className="text-3xl font-bold text-gray-400 mb-2">Produtos Cadastrados</h1>
 			<p className="text-gray-200">Gerencie todos os produtos do seu catálogo</p>
+			
 		</div>
 
 		<div className="rounded-lg shadow-sm mb-6">
