@@ -1,5 +1,6 @@
 import Product from "@/requests/interfaces/Product";
 
+
 export interface ProductState {
 	products: Product[];
 
