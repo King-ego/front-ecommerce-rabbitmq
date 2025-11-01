@@ -45,7 +45,7 @@ export default function HomePage(props: HomeProps) {
 		<div className="mb-8">
 
 			<h1 className="text-3xl font-bold text-gray-400 mb-2">Produtos Cadastrados</h1>
-			
+
 			<p className="text-gray-200">Gerencie todos os produtos do seu catálogo</p>
 
 		</div>
@@ -87,11 +87,6 @@ export default function HomePage(props: HomeProps) {
 					className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition duration-200">
 
 					<div className="h-48 bg-gray-200 relative">
-						{/*<img
-								src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-								alt="Produto"
-								className="w-full h-full object-cover"
-							/>*/}
 						<Image className="w-full h-full object-cover"
 							 src={product.image_url || "https://dummyimage.com/600x400/cccccc/000000&text="}
 							 alt={product.name} width={800}
