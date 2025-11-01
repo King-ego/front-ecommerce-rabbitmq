@@ -51,10 +51,11 @@ export default function HomePage(props: HomeProps) {
 		</div>
 
 		<div className="rounded-lg shadow-sm mb-6">
-			
+
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
 				<div className="flex-1">
+					
 					<div className="relative">
 						<div className="absolute inset-y-0 left-0 pl-3 flex items-center">
 							<button
