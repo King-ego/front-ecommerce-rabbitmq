@@ -70,7 +70,7 @@ export default function HomePage(props: HomeProps) {
 
 							</button>
 						</div>
-						
+
 						<input
 							type="text"
 							ref={ref}
@@ -78,6 +78,7 @@ export default function HomePage(props: HomeProps) {
 							placeholder="Pesquisar produtos por nome, categoria..."
 							className="block w-full pl-10 pr-3 py-2 text-gray-600 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 						/>
+						
 					</div>
 				</div>
 			</div>
