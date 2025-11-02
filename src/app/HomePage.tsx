@@ -70,6 +70,7 @@ export default function HomePage(props: HomeProps) {
 
 							</button>
 						</div>
+						
 						<input
 							type="text"
 							ref={ref}
