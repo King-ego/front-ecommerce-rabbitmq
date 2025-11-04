@@ -101,6 +101,7 @@ export default function HomePage(props: HomeProps) {
 							 src={product.image_url || "https://dummyimage.com/600x400/cccccc/000000&text="}
 							 alt={product.name} width={800}
 							 height={80} priority/>
+						
 						<div className="absolute top-3 right-3">
 								<span className={
 									clsx("text-xs px-2 py-1 rounded-full font-medium",
