@@ -71,7 +71,7 @@ export default function HomePage(props: HomeProps) {
 								</svg>
 
 							</button>
-							
+
 						</div>
 
 						<input
@@ -83,6 +83,7 @@ export default function HomePage(props: HomeProps) {
 						/>
 
 					</div>
+
 				</div>
 			</div>
 		</div>
