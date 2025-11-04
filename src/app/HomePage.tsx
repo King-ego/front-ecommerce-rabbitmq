@@ -85,6 +85,7 @@ export default function HomePage(props: HomeProps) {
 					</div>
 
 				</div>
+				
 			</div>
 		</div>
 
