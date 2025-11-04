@@ -111,6 +111,7 @@ export default function HomePage(props: HomeProps) {
 									{product.quantity_in_stock ? 'Em estoque' : 'Sem estoque'}
 								</span>
 						</div>
+						
 					</div>
 
 					<div className="p-4">
