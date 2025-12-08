@@ -11,7 +11,6 @@ import Image from "next/image";
 interface HomeProps {
 	initialProducts: Product[];
 }
-
 export default function HomePage(props: HomeProps) {
 	const {initialProducts} = props;
 	const {products, setProducts} = useProductStore();
