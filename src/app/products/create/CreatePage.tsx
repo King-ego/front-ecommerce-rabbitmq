@@ -13,7 +13,6 @@ type FormValues = {
 	category: string;
 	description: string;
 };
-
 export default function CadastroProduto() {
 	const {
 		register,
