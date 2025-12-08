@@ -32,7 +32,7 @@ export default function CadastroProduto() {
 			await ProductHttpService.createProduct(productData);
 			reset();
 		} catch (error) {
-			console.error("Erro ao cadastrar produto: ", error);
+			console.log("Erro ao cadastrar produto: ", error);
 		}
 	};
 
