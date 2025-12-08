@@ -1,5 +1,3 @@
 export default function CadastroProduto() {
-	return (
-		<CadastroProduto/>
-	);
+	return <CadastroProduto/>
 }
