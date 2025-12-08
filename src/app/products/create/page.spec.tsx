@@ -15,7 +15,6 @@ describe('CadastroProduto', () => {
 	beforeEach(() => {
 		jest.clearAllMocks()
 	})
-
 	it('Create product with valid input', async () => {
 		mockedProductService.createProduct.mockResolvedValue(undefined);
 
