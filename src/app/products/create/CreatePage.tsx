@@ -62,7 +62,6 @@ export default function CadastroProduto() {
 					<Input label={"Nome do Produto"}
 						   register={{...register("name", {required: "Informe o nome do produto"})}}
 						   placeholder={"Digite o nome do produto"} error={errors.name} testId="test_name_id"/>
-
 					<div className="grid grid-cols-2 gap-4">
 						<Input label={"Preço (R$)"} register={{...register("price", {required: "Informe o preço"})}}
 							   step={"0.01"} type={"number"} error={errors.price} testId="test_price_id"/>
