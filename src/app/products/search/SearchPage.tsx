@@ -17,9 +17,8 @@ export default function SearchPage(props: SearchProps) {
 	const searchParams = useSearchParams();
 
 	useEffect(() => {
-		if (!products.length) {
-			setProducts(initialProducts);
-		}
+		if (!products.length)  setProducts(initialProducts);
+
 	}, [setProducts, initialProducts, products])
 
 	useEffect(() => {
