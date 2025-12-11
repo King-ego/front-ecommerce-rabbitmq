@@ -83,7 +83,6 @@ export default function SearchPage(props: SearchProps) {
 						</div>
 					</form>
 				</div>
-
 				<div className="space-y-6">
 					{products.map((product, index) => (
 						<div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
