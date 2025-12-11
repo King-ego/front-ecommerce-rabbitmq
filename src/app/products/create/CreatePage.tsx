@@ -69,7 +69,6 @@ export default function CadastroProduto() {
 							   register={{...register("quantity_in_stock", {required: "Informe a quantidade"})}}
 							   type={"number"} error={errors.quantity_in_stock} testId={"test_quantity_id"}/>
 					</div>
-
 					<Select label="Categoria"
 							register={{...register("category", {required: "Selecione uma categoria"})}}
 							placeholder="Selecione a categoria" error={errors.category}
