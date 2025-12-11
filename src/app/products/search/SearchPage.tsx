@@ -34,9 +34,8 @@ export default function SearchPage(props: SearchProps) {
 
 		const params = new URLSearchParams();
 
-		if (searchQuery.trim()) {
-			params.set('q', searchQuery.trim());
-		}
+		if (searchQuery.trim()) params.set('q', searchQuery.trim());
+
 		router.push(`/products/search?${params.toString()}`);
 	};
 
