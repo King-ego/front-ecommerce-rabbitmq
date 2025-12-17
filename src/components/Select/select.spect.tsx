@@ -48,6 +48,7 @@ describe("Select Component", () => {
 		expect(screen.getByText("Select an option")).toBeInTheDocument();
 	});
 
+
 	it('should accept user selection', async () => {
 		render(<TestWrapper/>);
 		const select = screen.getByTestId("test-select");
