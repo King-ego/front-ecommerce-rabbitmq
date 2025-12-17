@@ -75,9 +75,7 @@ export default function CadastroProduto() {
 							testId="test_category_id"
 							options={[{value: "eletronicos", label: "Eletrônicos"}, {value: "roupas", label: "Roupas"}, {value: "moveis", label: "Móveis"}]}
 					/>
-
 					<Textarea testId="test_description_id" label="Descrição" register={{...register("description", {required: "Descreva o produto"})}} placeholder="Descreva o produto detalhadamente..." rows={4} error={errors.description} />
-
 					<div className="flex justify-between pt-4">
 						<button
 							type="button"
