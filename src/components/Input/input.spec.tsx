@@ -53,7 +53,6 @@ describe("Input Component", () => {
 		fireEvent.change(input, { target: { value: 'texto teste' } });
 
 		expect(input).toHaveValue('texto teste');
-
 	});
 
 	it('should display error message when fails', async () => {
