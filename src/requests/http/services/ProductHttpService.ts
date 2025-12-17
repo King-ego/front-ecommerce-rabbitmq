@@ -21,7 +21,6 @@ export class ProductHttpService {
 			},
 			body: JSON.stringify(product)
 		})
-
 	}
 
 	public static async getFilterProducts(query: {identifier: string}): Promise<Product[]> {
