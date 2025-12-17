@@ -93,6 +93,7 @@ export default function SearchPage(props: SearchProps) {
 						? 'bg-red-100 text-red-800'
 						: 'bg-green-100 text-green-800'
 				}`}>
+
                   {product.quantity_in_stock < 1 ? 'Sem estoque' : 'Em estoque'}
                 </span>
 								<span className="ml-2 text-sm text-gray-500">{product.category}</span>
