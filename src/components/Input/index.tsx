@@ -34,6 +34,7 @@ export function Input(data: InputProps) {
           			${error ? "border-red-500" : "border-gray-300"}
         		`}
 			/>
+
 			{error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
 		</div>
 	);
