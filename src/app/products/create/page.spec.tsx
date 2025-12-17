@@ -10,7 +10,6 @@ jest.mock('@/requests/http/services/ProductHttpService', () => ({
 }))
 
 const mockedProductService = ProductHttpService as jest.Mocked<typeof ProductHttpService>
-
 describe('CadastroProduto', () => {
 	beforeEach(() => {
 		jest.clearAllMocks()
