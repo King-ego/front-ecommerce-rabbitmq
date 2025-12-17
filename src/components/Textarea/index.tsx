@@ -18,6 +18,7 @@ export default function Textarea(data: InputProps) {
 		testId,
 		...rest
 	} = data;
+
 	return(
 		<div className={"w-full"}>
 			<label className="block text-sm font-medium text-gray-700">
